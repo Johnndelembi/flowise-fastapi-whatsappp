@@ -1,4 +1,4 @@
-# WhatsApp Webhook FastAPI Integration
+# 3rd Party WhatsApp (FastAPI, Flowise) Integration
 
 This project provides a FastAPI-based webhook for integrating WhatsApp messaging with an external AI or automation API. When a user sends a message to your WhatsApp number, the webhook receives the message, forwards it to an external API for processing, and sends the API's response back to the user on WhatsApp.
 
