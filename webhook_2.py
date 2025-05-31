@@ -8,10 +8,10 @@ import requests
 # Load environment variables
 load_dotenv()
 
-API_URL = "http://127.0.0.1:3000/api/v1/prediction/02823244-eb35-42f0-8616-c860c6d3d3ca"
-PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID", "164044120131325")  # Replace with your phone number ID
-WHATSAPP_API_URL = "https://graph.facebook.com/v22.0/164044120131325/messages"  # Replace with your phone number ID
-WHATSAPP_TOKEN = "EAA51wSbzeREBOwjjgNVAONUU9fK0i6WIgOdLwCJaihuS8By8xwaIygvl6MNB61ZCmGwXZA1pDhH3ZARziSsEDB0QHctWuKIvL7sG8ObyRZCzp6k6SKnfGPE5gVNZBn8rEhUWmsZAYpgikhzni301ZCgaCGWVenjZBpVRXZAlKN3MVDKCYhWRpZAQBajYlj51uOjCTDt0XcmUQRj7ZCMWwXCHyDrvLSyI09jtEUZD"
+API_URL = "your-flowsier-api-url"  # Replace with your Flowsier API URL
+PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID", "1234")  # Replace with your phone number ID
+WHATSAPP_API_URL = "https://graph.facebook.com/v22.0/{replace_with_phone_number_id}/messages"  # Replace with your phone number ID
+WHATSAPP_TOKEN = "your-whatsapp-token"  # Replace with your WhatsApp token
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
@@ -93,7 +93,6 @@ async def handle_webhook(request: Request):
             api_response = query({"question": message_text})
             logger.info(f"API response: {api_response}")
 
-            # Prepare the message to send back (adjust as needed)
             # Prepare the message to send back (only the "text" field)
             if isinstance(api_response, dict) and "text" in api_response:
                 reply_text = api_response["text"]
